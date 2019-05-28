@@ -31,6 +31,8 @@ public class CompanyDaoImpl implements CompanyDao {
 			lb.setEmail(rs.getString(6));
 			lb.setCity(rs.getString(7));
 			lb.setImg(rs.getString(8));
+		   lb.setJianjie(rs.getString(9));
+		   lb.setWenhua(rs.getString(10));
 			
 			
 				

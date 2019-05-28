@@ -1,7 +1,9 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*,com.jiaju.entity.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+              List<Producttype> list = (List<Producttype>)request.getAttribute("lblist");
+              List<Productlist> llist =(List<Productlist>)request.getAttribute("ldlist");
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -36,12 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="/header"></jsp:include>
 <div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
-    <ul class="am-slides">
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-    </ul>
+    
 </div>
 <section class="pro-list">
     <aside class="pro-leftsidebar">
@@ -55,10 +52,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品分类</a>
                 <ul id="pro-category">
-                    <li class="on"><a href="#">椅子系列</a></li>
-                    <li><a href="#">餐桌系列</a></li>
-                    <li><a href="#">沙发系列</a></li>
-                    <li><a href="#">创意系列</a></li>
+                <%for(int i=0;i<list.size();i++){ %>
+                    <li class="on"><a href="#"><%=list.get(i).getLeibie() %></a></li>
+                   <%} %>
                 </ul>
             </li>
         </ul>
@@ -97,10 +93,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li>市场价:</li>
                 </ul>
                 <ul class="pro-right-info-variable">
-                    <li>软皮椅</li>
-                    <li>真皮</li>
-                    <li>$260.00</li>
-                    <li>$280.00</li>
+                <!-- 
+                <%for (int i=0;i<llist.size();i++){ %>
+                    <li><%=llist.get(i).getName() %></li>
+                    
+                    <li><%=llist.get(i).getJiaqian() %></li>
+                    
+                   <%} %> -->
                 </ul>
             </div>
 

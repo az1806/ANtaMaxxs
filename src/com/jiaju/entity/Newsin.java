@@ -4,11 +4,13 @@ public class Newsin {
 				private int id;
 				private String zixun;
 				private String xiangqing;
-				public Newsin(int id, String zixun, String xiangqing) {
+				private String date;
+				public Newsin(int id, String zixun, String xiangqing,String date) {
 					super();
 					this.id = id;
 					this.zixun = zixun;
 					this.xiangqing = xiangqing;
+					this.date = date;
 				}
 				public Newsin() {
 					super();
@@ -31,10 +33,18 @@ public class Newsin {
 				public void setXiangqing(String xiangqing) {
 					this.xiangqing = xiangqing;
 				}
+				public String getDate() {
+					return date;
+				}
+				public void setDate(String date) {
+					this.date = date;
+				}
 				@Override
 				public String toString() {
 					return "Newsin [id=" + id + ", zixun=" + zixun
-							+ ", xiangqing=" + xiangqing + "]";
+							+ ", xiangqing=" + xiangqing + ", date=" + date
+							+ "]";
 				}
+				
 				
 }

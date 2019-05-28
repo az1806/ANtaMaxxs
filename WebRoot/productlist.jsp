@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
           List<Producttype> list = (List<Producttype>)request.getAttribute("lblist");
-          List<Productlist> llist =(List<Productlist>)request.getAttribute("lblist");
+          List<Productlist> llist =(List<Productlist>)request.getAttribute("ldlist");
          
                  
 %>
@@ -58,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="pro-category">
                 
                 <% for(int i=0;i<list.size();i++){%>
-               <li class="on"><a href="#"><%=list.get(i).getLeibie() %></a></li>
+               <li><a href="bl?"><%=list.get(i).getLeibie() %></a></li>
              <%  } %>
                
                     
@@ -75,8 +75,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                    <li>
                 <a href="productdetails.jsp">
                     <div class="img-box">
-                        <img src="">
-                        <p>软皮椅</p>
+                        <img src="<%=llist.get(i).getImg() %>">
+                        <p><%=llist.get(i).getName() %></p>
                     </div>
                 </a>
             </li>
@@ -84,7 +84,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                  <%  } %>
            
         </ul>
-		<!--
+		
         <div class="pro_list_more_pages">
             <ul>
                 <li><a>上一页</a></li>
@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <li><a>下一页</a></li>
             </ul>
         </div>
-		-->
+		
     </aside>
 
 

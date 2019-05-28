@@ -1,7 +1,9 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*,com.jiaju.entity.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+  					List<Newsintype> list =(List<Newsintype>) request.getAttribute("list");
+      
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -36,12 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <body>
 <jsp:include page="/header"></jsp:include>
 <div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
-    <ul class="am-slides">
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-        <li><img src="images/banner.jpg" alt="" ></li>
-    </ul>
+   
 </div>
 <div>
     <header class="header-article-list">
@@ -52,9 +49,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           </a>
         </div>
         <ul>
-            <li class="article-on"><a href="article_list.html">行业新闻</a></li>
-            <li><a href="article_list.jsp">家居百科</a></li>
-            <li><a href="article_list.jsp">公司新闻</a></li>
+        <%for(int i=0;i<list.size();i++){ %>
+            <li class="article-on"><a href="article_list.html"><%=list.get(i).getLeibie() %></a></li>
+            <%} %>
         </ul>
         <div class="article-more-btn">
             <a href="article_list_content.jsp">

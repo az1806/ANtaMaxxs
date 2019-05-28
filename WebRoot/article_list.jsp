@@ -1,7 +1,10 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+﻿<%@ page language="java" import="java.util.*,com.jiaju.entity.*" pageEncoding="UTF-8"%>
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+   
+          List<Newsin> list =(List<Newsin>)request.getAttribute("nsn");
+    
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -40,77 +43,20 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         <ul>
             <li>
                 <div class="article-date">
+                <%for(int i=0;i<list.size();i++){ %>
                     <strong>01</strong>
-                    <p>2017/05</p>
+                    <p><%=list.get(i).getDate() %></p>
                 </div>
                 <div class="article-info">
                     <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
+                        <h3><%=list.get(i).getZixun() %></h3>
+                        <p><%=list.get(i).getXiangqing() %></p>
                     </a>
+                    <%} %>
                 </div>
             </li>
 
-            <li>
-                <div class="article-date">
-                    <strong>01</strong>
-                    <p>2017/05</p>
-                </div>
-                <div class="article-info">
-                    <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="article-date">
-                    <strong>01</strong>
-                    <p>2017/05</p>
-                </div>
-                <div class="article-info">
-                    <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="article-date">
-                    <strong>01</strong>
-                    <p>2017/05</p>
-                </div>
-                <div class="article-info">
-                    <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="article-date">
-                    <strong>01</strong>
-                    <p>2017/05</p>
-                </div>
-                <div class="article-info">
-                    <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
-                    </a>
-                </div>
-            </li>
-            <li>
-                <div class="article-date">
-                    <strong>01</strong>
-                    <p>2017/05</p>
-                </div>
-                <div class="article-info">
-                    <a href="article_list_content">
-                        <h3>家具有哪些类型?</h3>
-                        <p>按家具从风格上可以分为：现代家具、欧式古典家具、美式家具、中式古典家具（也就是红木家具），还有近两年比较流行的新古典...</p>
-                    </a>
-                </div>
-            </li>
+           
         </ul>
 
     </section>

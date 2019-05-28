@@ -16,7 +16,7 @@ public class ProductlistDaoImpl  implements ProductlistDao{
 	public List<Productlist> getAllProductlistDao() {
 		List<Productlist> list = new ArrayList<Productlist>();
 		
-		ResultSet rs=DBManager.querySQL("select * from productlist");
+		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.productlist random limit 6;");
 		
 		try {
 			while(rs.next()){

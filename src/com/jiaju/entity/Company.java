@@ -9,7 +9,8 @@ public class Company {
 		private String email;
 		private String city;
 		private String img;
-		
+		private String jianjie;
+		private String wenhua;
 		
 		
 		public Company(int id, String corporation, String address,
@@ -24,6 +25,8 @@ public class Company {
 			this.email = email;
 			this.city = city;
 			this.img = img;
+			this.jianjie = jianjie;
+			this.wenhua = wenhua;
 		}
 		
 		public Company() {
@@ -79,13 +82,36 @@ public class Company {
 			this.img = img;
 		}
 
+		public String getJianjie() {
+			return jianjie;
+		}
+
+		public void setJianjie(String jianjie) {
+			this.jianjie = jianjie;
+		}
+
+		public String getWenhua() {
+			return wenhua;
+		}
+
+		public void setWenhua(String wenhua) {
+			this.wenhua = wenhua;
+		}
+
 		@Override
 		public String toString() {
 			return "Company [id=" + id + ", Corporation=" + Corporation
 					+ ", Address=" + Address + ", jieshao=" + jieshao
 					+ ", Zipcode=" + Zipcode + ", email=" + email + ", city="
-					+ city + ", img=" + img + "]";
+					+ city + ", img=" + img + ", jianjie=" + jianjie
+					+ ", wenhua=" + wenhua + "]";
+		}
+
+		
+		
+
+	
 		}
 		
 		
-}
+

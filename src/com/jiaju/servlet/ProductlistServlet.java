@@ -22,9 +22,20 @@ public class ProductlistServlet extends HttpServlet {
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/**
+		 * 获取商品分类
+		 */
 		ProducttypeDao lbdao=new ProducttypeDaoImpl();
 		List<Producttype> lblist=lbdao.getAllProducttype();
 		request.setAttribute("lblist", lblist);
+		/**
+		 * 获取商品列表
+		 */
+		ProductlistDao ldbao = new ProductlistDaoImpl();
+		List<Productlist> ldlist = ldbao.getAllProductlistDao();
+		request.setAttribute("ldlist", ldlist);
+		
+		
 		
 
 		request.getRequestDispatcher("productlist.jsp").forward(request, response);

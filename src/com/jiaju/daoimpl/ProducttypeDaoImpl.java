@@ -18,11 +18,11 @@ public class ProducttypeDaoImpl  implements ProducttypeDao {
 		List<Producttype> list = new ArrayList<Producttype>();
 		
 		
-		ResultSet rs=DBManager.querySQL("select * from producttype");
+		ResultSet rs=DBManager.querySQL("select * from Producttype ");
 		
 		try {
 			while(rs.next()){
-				Producttype bl=new Producttype();
+			Producttype bl=new Producttype();
 			bl.setId(rs.getInt(1));
 			bl.setLeibie(rs.getString(2));
 			list.add(bl);
