@@ -63,8 +63,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <aside class="pro-rightsidebar">
         <header>
             <p></p>
-            <span>椅子系列</span>
-            <div class="product-nav"><a href="index.html">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a>XX椅子</a></div>
+            <%for(int i=0;i<llist.size();i++){ %>
+            <span><%=llist.get(i).getName() %></span>
+            <div class="product-nav"><a href="index.html">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=llist.get(i).getName() %></a></div>
+            <%} %>
         </header>
         <main>
             <div class="pro-right-left">

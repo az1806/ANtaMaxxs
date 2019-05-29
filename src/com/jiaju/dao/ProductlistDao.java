@@ -8,4 +8,12 @@ public interface ProductlistDao {
      
 	
 	        List<Productlist> getAllProductlistDao();
+	        
+	        /**
+	         * 产品类别
+	         * @param id
+	         * @return
+	         */
+	   
+	        List<Productlist> getAllProduct(int typeid);
 }

@@ -2,9 +2,10 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-          List<Producttype> list = (List<Producttype>)request.getAttribute("lblist");
-          List<Productlist> llist =(List<Productlist>)request.getAttribute("ldlist");
-         
+          List<Producttype> lblist = (List<Producttype>)request.getAttribute("lblist");
+          List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
+          
+       
                  
 %>
 <!DOCTYPE html>
@@ -56,11 +57,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品分类</a>
                 <ul id="pro-category">
-                
-                <% for(int i=0;i<list.size();i++){%>
-               <li><a href="bl?"><%=list.get(i).getLeibie() %></a></li>
+                <% for(int i=0;i<lblist.size();i++){%>
+               <li>  <a href="/jiaju/productlist?typeid=<%=lblist.get(i).getId()%>"><%=lblist.get(i).getLeibie() %> </a></li>
              <%  } %>
-               
+              
                     
                     
                 </ul>
@@ -70,20 +70,31 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <aside class="pro-rightsidebar">
         <header>
-
-                  <%for(int i=0;i<llist.size();i++){%>
-                   <li>
-                <a href="productdetails.jsp">
+           <ul>
+      
+      <%for(int i=0;i<prolist.size();i++){ %>
+      
+      
+        <li>
+                <a href="productdetails">
                     <div class="img-box">
-                        <img src="<%=llist.get(i).getImg() %>">
-                        <p><%=llist.get(i).getName() %></p>
+                        <img src="<%=prolist.get(i).getImg() %>">
+                        <p><%=prolist.get(i).getName() %></p>
                     </div>
                 </a>
             </li>
                   
-                 <%  } %>
-           
-        </ul>
+      
+      
+   <% } %>
+      
+                 
+                 
+        
+        
+        
+        
+        </ul> 
 		
         <div class="pro_list_more_pages">
             <ul>

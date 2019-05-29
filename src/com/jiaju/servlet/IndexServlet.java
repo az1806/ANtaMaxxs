@@ -11,24 +11,38 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jiaju.dao.CompanyDao;
 import com.jiaju.dao.ProductlistDao;
+import com.jiaju.dao.ProducttypeDao;
 import com.jiaju.daoimpl.CompanyDaoImpl;
 import com.jiaju.daoimpl.ProductlistDaoImpl;
+import com.jiaju.daoimpl.ProducttypeDaoImpl;
 import com.jiaju.entity.Company;
 import com.jiaju.entity.Productlist;
+import com.jiaju.entity.Producttype;
 
 public class IndexServlet extends HttpServlet {
 
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		/**
+		 * 获取公司信息
+		 */
 		CompanyDao cpd = new CompanyDaoImpl();
         Company cpdy = cpd.getAllCompanyDao();
     	request.setAttribute("cpdy", cpdy);
-		 
+		 /**
+		  * 获取商品信息
+		  */
     	ProductlistDao ldbao = new ProductlistDaoImpl();
 		List<Productlist> ldlist = ldbao.getAllProductlistDao();
 		request.setAttribute("ldlist", ldlist);
 		
+		/**
+		 * 获取产品分类
+		 */
+		ProducttypeDao lbdao=new ProducttypeDaoImpl();
+		List<Producttype> lblist=lbdao.getAllProducttype();
+		request.setAttribute("lblist", lblist);
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}

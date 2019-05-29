@@ -41,11 +41,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <section class="article-content">
         <ul>
+        <%for(int i=0;i<list.size();i++){ %>
             <li>
                 <div class="article-date">
-                <%for(int i=0;i<list.size();i++){ %>
                     <strong>01</strong>
-                    <p><%=list.get(i).getDate() %></p>
+                  <p><%=list.get(i).getDate() %></p>
                 </div>
                 <div class="article-info">
                     <a href="article_list_content">

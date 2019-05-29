@@ -32,6 +32,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
@@ -70,7 +71,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
        </label>
 
 
-       <button type="button" class="am-btn am-btn-danger">提交</button>
+       <button type="button" class="am-btn am-btn-danger" onclick="">提交</button>
    </form>
 </div>
 </div>

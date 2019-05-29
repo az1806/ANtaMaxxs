@@ -9,6 +9,7 @@ import com.jiaju.dao.ProductlistDao;
 import com.jiaju.entity.Productlist;
 import com.jiaju.entity.Producttype;
 import com.jiaju.util.DBManager;
+import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 public class ProductlistDaoImpl  implements ProductlistDao{
 
@@ -16,7 +17,7 @@ public class ProductlistDaoImpl  implements ProductlistDao{
 	public List<Productlist> getAllProductlistDao() {
 		List<Productlist> list = new ArrayList<Productlist>();
 		
-		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.productlist random limit 6;");
+		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.productlist order by rand() limit 6;");
 		
 		try {
 			while(rs.next()){
@@ -42,5 +43,38 @@ public class ProductlistDaoImpl  implements ProductlistDao{
 		
 		return null;
 	}
+
+	@Override
+	public List<Productlist> getAllProduct(int typeid) {
+  ResultSet rs=DBManager.querySQL("select * from productlist where fenlei="+typeid );
+                 List<Productlist> list=new  ArrayList <Productlist>();
+		try {
+			while(rs.next()){
+				
+				Productlist bl=new Productlist();
+				bl.setId(rs.getInt(1));
+				bl.setName(rs.getString(2));
+				bl.setSize(rs.getString(3));
+				bl.setColor(rs.getString(4));
+				bl.setSum(rs.getString(5));
+				bl.setJiaqian(rs.getString(6));
+				bl.setFenlei(rs.getString(7));
+				bl.setXilie(rs.getString(8));
+				bl.setImg(rs.getString(9));
+				
+				list.add(bl);
+				
+				
+				
+			}
+			return list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return null;
+	}
+
 
 }

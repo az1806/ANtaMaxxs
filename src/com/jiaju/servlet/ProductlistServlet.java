@@ -28,13 +28,24 @@ public class ProductlistServlet extends HttpServlet {
 		ProducttypeDao lbdao=new ProducttypeDaoImpl();
 		List<Producttype> lblist=lbdao.getAllProducttype();
 		request.setAttribute("lblist", lblist);
-		/**
-		 * 获取商品列表
-		 */
-		ProductlistDao ldbao = new ProductlistDaoImpl();
-		List<Productlist> ldlist = ldbao.getAllProductlistDao();
-		request.setAttribute("ldlist", ldlist);
 		
+	  /**
+	   * 根据类别显示产品列表
+	   */
+		Integer typeid;
+		if(request.getParameter("typeid")!=null){
+			typeid=Integer.parseInt(request.getParameter("typeid"));
+			
+		}else{
+			
+			typeid=1;
+		}
+		
+		
+		
+		ProductlistDao prodao=new ProductlistDaoImpl();
+		List<Productlist> prolist=prodao.getAllProduct(typeid);
+          request.setAttribute("prolist", prolist);
 		
 		
 
