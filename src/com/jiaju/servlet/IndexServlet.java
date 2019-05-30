@@ -44,6 +44,21 @@ public class IndexServlet extends HttpServlet {
 		List<Producttype> lblist=lbdao.getAllProducttype();
 		request.setAttribute("lblist", lblist);
 		
+		/**
+		 * 根据产产品id获取商品
+		 */
+		int cpid;
+		if(request.getParameter("cpid")!=null){
+			
+			 cpid=Integer.parseInt(request.getParameter("cpid"));
+		}
+		
+		ProductlistDao prodaos=new ProductlistDaoImpl();
+		List<Productlist> getpro=prodaos.Getproduct();
+		request.setAttribute("getpro", getpro);
+		
+		
+		
 		request.getRequestDispatcher("index.jsp").forward(request, response);
 	}
 

@@ -4,7 +4,7 @@ String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
           List<Producttype> lblist = (List<Producttype>)request.getAttribute("lblist");
           List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
-          
+           List<Productlist> getpro=(ArrayList<Productlist>) request.getAttribute("getpro");
        
                  
 %>
@@ -76,7 +76,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
       
       
         <li>
-                <a href="productdetails">
+                <a href="productdetail?cpid=<%=getpro.get(i).getId() %>">
                     <div class="img-box">
                         <img src="<%=prolist.get(i).getImg() %>">
                         <p><%=prolist.get(i).getName() %></p>

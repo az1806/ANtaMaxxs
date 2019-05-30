@@ -2,8 +2,9 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-              List<Producttype> list = (List<Producttype>)request.getAttribute("lblist");
-              List<Productlist> llist =(List<Productlist>)request.getAttribute("ldlist");
+             List<Producttype> typelist=(ArrayList<Producttype>) request.getAttribute("typelist");
+               List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
+             int cpid=Integer.parseInt(request.getParameter("cpid"));
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -52,9 +53,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品分类</a>
                 <ul id="pro-category">
-                <%for(int i=0;i<list.size();i++){ %>
-                    <li class="on"><a href="#"><%=list.get(i).getLeibie() %></a></li>
-                   <%} %>
+              <%for(int i=0;i<typelist.size();i++){ %>
+              
+              <li class="on"><a href="#"><%=typelist.get(i).getLeibie() %>  </a></li>
+          <%   } %>
+                   
+              
                 </ul>
             </li>
         </ul>
@@ -63,10 +67,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
     <aside class="pro-rightsidebar">
         <header>
             <p></p>
-            <%for(int i=0;i<llist.size();i++){ %>
-            <span><%=llist.get(i).getName() %></span>
-            <div class="product-nav"><a href="index.html">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a><%=llist.get(i).getName() %></a></div>
-            <%} %>
+          
+            <span></span>
+            <div class="product-nav"><a href="index.html">首页 </a>&#62;<a href="#">产品展示</a>&#62;<a></a></div>
+         
         </header>
         <main>
             <div class="pro-right-left">
@@ -95,13 +99,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <li>市场价:</li>
                 </ul>
                 <ul class="pro-right-info-variable">
-                <!-- 
-                <%for (int i=0;i<llist.size();i++){ %>
-                    <li><%=llist.get(i).getName() %></li>
-                    
-                    <li><%=llist.get(i).getJiaqian() %></li>
-                    
-                   <%} %> -->
+                          
+                    <li><%=prolist.get(cpid-1).getName() %></li>      
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                   
                 </ul>
             </div>
 

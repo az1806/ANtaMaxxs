@@ -76,5 +76,38 @@ public class ProductlistDaoImpl  implements ProductlistDao{
 		return null;
 	}
 
+	@Override
+	public List<Productlist> Getproduct() {
+		
+		 ResultSet rs=DBManager.querySQL("select * from productlist");
+         List<Productlist> list=new  ArrayList <Productlist>();
+try {
+	while(rs.next()){
+		
+		Productlist bl=new Productlist();
+		bl.setId(rs.getInt(1));
+		bl.setName(rs.getString(2));
+		bl.setSize(rs.getString(3));
+		bl.setColor(rs.getString(4));
+		bl.setSum(rs.getString(5));
+		bl.setJiaqian(rs.getString(6));
+		bl.setFenlei(rs.getString(7));
+		bl.setXilie(rs.getString(8));
+		bl.setImg(rs.getString(9));
+		
+		list.add(bl);
+		
+		
+		
+	}
+	return list;
+} catch (SQLException e) {
+	// TODO Auto-generated catch block
+	e.printStackTrace();
+}
+
+return null;
+	}
+
 
 }

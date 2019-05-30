@@ -16,4 +16,11 @@ public interface ProductlistDao {
 	         */
 	   
 	        List<Productlist> getAllProduct(int typeid);
+	        /**
+	         * 获取所有产品
+	         * @return
+	         */
+	        
+	        List<Productlist> Getproduct();
+	        
 }

@@ -10,6 +10,7 @@
 			.getAttribute("ldlist");
 	List<Producttype> list = (List<Producttype>) request
 			.getAttribute("lblist");
+			List<Productlist> prolist =(List<Productlist>) request.getAttribute("getpro");
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -107,9 +108,11 @@
   <tr>
    <a href="product_info.html"> <!--随机亮出6张照片  -->
 					
- 	 <%for (int i = 0; i < 3; i++) {%>
+ 	 <%for (int i = 0; i < 3; i++) { %>
+ 	 
   <td>
-       <img src="<%=llist.get(i).getImg()%>" />
+  
+       <img href="productdetail?cpid=<%=llist.get(i).getId() %>" src="<%=llist.get(i).getImg()%>" />
   </td>
   <%}%>
   
@@ -120,7 +123,7 @@
 					
  	 <%for (int i = 3; i <6; i++) {%>
   <td>
-       <img src="<%=llist.get(i).getImg()%>" />
+       <img href="productdetail?cpid=<%=llist.get(i).getId() %>" src="<%=llist.get(i).getImg()%>" />
   </td>
   <%}%>
   

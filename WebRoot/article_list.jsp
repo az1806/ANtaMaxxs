@@ -38,7 +38,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
-
+ <div> <a>首页</a>&#62;<a>新闻资讯</a>&#62;<a>更多</a></div>
     <section class="article-content">
         <ul>
         <%for(int i=0;i<list.size();i++){ %>
