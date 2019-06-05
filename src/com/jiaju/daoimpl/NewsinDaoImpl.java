@@ -17,7 +17,7 @@ public class NewsinDaoImpl implements NewsinDao{
 		List<Newsin> list =new ArrayList<Newsin>();
 		
 		
-		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.newsin;");
+		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.newsin order by date desc");
 		try {
 			while(rs.next()){
 				Newsin bl=new Newsin();

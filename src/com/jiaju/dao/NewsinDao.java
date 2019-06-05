@@ -7,5 +7,5 @@ import com.jiaju.entity.Newsin;
 public interface NewsinDao {
 
 	
-	     List<Newsin>getAllNewsinDao();
+	     List<Newsin> getAllNewsinDao();
 }

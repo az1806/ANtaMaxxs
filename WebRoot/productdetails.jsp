@@ -3,8 +3,11 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
              List<Producttype> typelist=(ArrayList<Producttype>) request.getAttribute("typelist");
+             
                List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
+               
              int cpid=Integer.parseInt(request.getParameter("cpid"));
+             
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -55,7 +58,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="pro-category">
               <%for(int i=0;i<typelist.size();i++){ %>
               
-              <li class="on"><a href="#"><%=typelist.get(i).getLeibie() %>  </a></li>
+              <li ><a href="#"><%=typelist.get(i).getLeibie() %>  </a></li>
           <%   } %>
                    
               
@@ -79,13 +82,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="pro-detalis-carousel">
                     <div class="am-slider am-slider-default am-slider-carousel" data-am-flexslider="{itemWidth: 112, itemMargin: 4,move:5,  controlNav: false ,  slideshow: true}">
                         <ul class="am-slides pro-details">
-                            <li><img src="images/procarousel.png" /></li>
-                            <li><img src="images/team1.png" /></li>
-                            <li><img src="images/team2.png" /></li>
-                            <li><img src="images/team3.png" /></li>
-                            <li><img src="images/team4.png" /></li>
-                            <li><img src="images/procarousel.png" /></li>
-                            <li><img src="images/procarousel.png" /></li>
+                            <li><img src="<%=prolist.get(cpid-1).getImg() %>" /></li>
+                            
                         </ul>
                     </div>
                 </div>

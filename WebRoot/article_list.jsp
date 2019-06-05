@@ -2,8 +2,9 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-   
-          List<Newsin> list =(List<Newsin>)request.getAttribute("nsn");
+
+      		List<Newsintype> listss =(List<Newsintype>) request.getAttribute("listss");
+      		 List <Newsin> list = ( List <Newsin>)request.getAttribute("nsn");
     
 %>
 <!DOCTYPE html>
@@ -38,13 +39,27 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
- <div> <a>首页</a>&#62;<a>新闻资讯</a>&#62;<a>更多</a></div>
+       <header class="header-article-list">
+        <div class="article-position">新闻资讯</div>
+      
+  <ul>
+       
+            <li class="article-on"><a href="article_list.html"></a></li>
+      
+        </ul>
+        
+       
+        <div class="article-more-btn">
+            <a href="article_list_more.html">MORE &#62; &#62;</a>
+        </div>
+    </header>
+              
     <section class="article-content">
-        <ul>
+       <ul>
         <%for(int i=0;i<list.size();i++){ %>
             <li>
                 <div class="article-date">
-                    <strong>01</strong>
+                    <strong><%=list.get(i).getId() %></strong>
                   <p><%=list.get(i).getDate() %></p>
                 </div>
                 <div class="article-info">

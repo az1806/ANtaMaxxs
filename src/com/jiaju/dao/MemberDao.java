@@ -6,6 +6,5 @@ import com.jiaju.entity.Member;
 
 public interface MemberDao {
 
-	
-	      	List<Member>getAllMemberDao();
+	Member querySQL(String userName,String userPassword);
 }

@@ -37,6 +37,12 @@ public class ProducttypeDaoImpl  implements ProducttypeDao {
 		return null;
 	}
 
+	@Override
+	public int add(String leibie) {
+		// TODO Auto-generated method stub
+		return DBManager.updateSQL("INSERT INTO antadb.producttype (leibie) VALUES ('"+leibie+"');");
+	}
+
 	
 
 }

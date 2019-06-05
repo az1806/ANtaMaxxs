@@ -17,7 +17,7 @@ public class NewsintypeDaoImpl implements NewsintypeDao {
 		List<Newsintype> list = new ArrayList<Newsintype>();
 		
 		
-		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.newsintype;");
+		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.newsintype");
 		
 		try {
 			while(rs.next()){

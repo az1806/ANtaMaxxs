@@ -1,12 +1,14 @@
 ﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
-String path = request.getContextPath();
-String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+	String path = request.getContextPath();
+	String basePath = request.getScheme() + "://"
+			+ request.getServerName() + ":" + request.getServerPort()
+			+ path + "/";
 %>
+
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<base href="<%=basePath%>">
     <title>某某家具设计公司企业官网-模板之家</title>
     ﻿<meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -33,48 +35,69 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 
+<script type="text/javascript">
+	function checkForm(){
+		var username = document.getElementById("username").value;
+		var phone = document.getElementById("phone").value;
+		var email = document.getElementById("email").value;
+		var content = document.getElementById("content").value;
+		if(username == ""){
+			alert("名字不能为空!!!");
+			return false;
+		}
+		if(phone == ""){
+			alert("电话不能为空!!!");
+			return false;
+		}
+		if(email == ""){
+			alert("邮箱不能为空!!!");
+			return false;
+		}
+		if(content == ""){
+			alert("评论内容不能为空!!!");
+			return false;		
+		}
+		return true;
+	}
+</script>
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
-<div class="am-slider am-slider-default" data-am-flexslider="{playAfterPaused: 8000}">
-   
-</div>
 <div>
     <header class="header-article-list">
         <h1>在线留言</h1>
 
     </header>
 <div>
-   <form class="message-form" method="post" >
+   <form class="message-form" action="message" method="post" onsubmit="return checkForm(this)">
 
        <label>姓名
-           <input type="text" name="username">
+           <input id="username" type="text" name="username">
            <span>*</span>
        </label>
 
 
        <label>电话
-           <input type="text" name="tel">
+           <input id="phone" type="text" name="phone">
            <span>*</span>
        </label>
 
 
        <label>邮箱
-           <input type="email" name="email">
+           <input id="email" type="email" name="email">
            <span>*</span>
        </label>
-
 
        <label>内容
-           <textarea></textarea>
+           <textarea id="content" name="content"></textarea>
            <span>*</span>
        </label>
 
 
-       <button type="button" class="am-btn am-btn-danger" onclick="">提交</button>
+       <button type="submit" class="am-btn am-btn-danger">提交</button>
    </form>
 </div>
 </div>
-<jsp:include page="/foot"></jsp:include>
+﻿<jsp:include page="/foot"></jsp:include>
 </body>
 </html>

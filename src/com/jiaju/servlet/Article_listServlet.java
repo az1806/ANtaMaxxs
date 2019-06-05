@@ -10,21 +10,35 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jiaju.dao.NewsinDao;
+import com.jiaju.dao.NewsintypeDao;
 import com.jiaju.daoimpl.NewsinDaoImpl;
+import com.jiaju.daoimpl.NewsintypeDaoImpl;
 import com.jiaju.entity.Newsin;
+import com.jiaju.entity.Newsintype;
 
 
 public class Article_listServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		
+		/**
+		 * 获取资讯详情
+		 */
 		   NewsinDao nsd = new   NewsinDaoImpl();
 		   List <Newsin> nsn = nsd.getAllNewsinDao();
-		   request.setAttribute("nsn", nsn);
-		
+		   request.setAttribute("nsn", nsn); 
+		   
+		   /**
+		    * 获取资讯类别
+		    */
+		  
+				NewsintypeDao newsdao=new NewsintypeDaoImpl();
+				
+				List<Newsintype> listss=newsdao.getAllNewsintypeDao();
+			
+		        request.setAttribute("listss",listss);
 
-		request.getRequestDispatcher("article_list.jsp").forward(request, response);
+	              request.getRequestDispatcher("article_list.jsp").forward(request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

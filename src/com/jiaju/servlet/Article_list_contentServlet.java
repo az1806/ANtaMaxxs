@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.jiaju.dao.NewsinDao;
 import com.jiaju.dao.NewsintypeDao;
+import com.jiaju.daoimpl.NewsinDaoImpl;
 import com.jiaju.daoimpl.NewsintypeDaoImpl;
+import com.jiaju.entity.Newsin;
 import com.jiaju.entity.Newsintype;
 
 public class Article_list_contentServlet extends HttpServlet {
@@ -22,6 +25,10 @@ public class Article_list_contentServlet extends HttpServlet {
 		NewsintypeDao ntd = new NewsintypeDaoImpl();
 		List<Newsintype> list = ntd.getAllNewsintypeDao();
 		request.setAttribute("list", list);
+		
+		 NewsinDao nsd = new   NewsinDaoImpl();
+		   List <Newsin> nsn = nsd.getAllNewsinDao();
+		   request.setAttribute("nsn", nsn);
 		
 
 		request.getRequestDispatcher("article_list_content.jsp").forward(request, response);

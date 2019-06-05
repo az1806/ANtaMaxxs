@@ -10,4 +10,5 @@ public interface ProducttypeDao {
 	
 	
 	  List<Producttype> getAllProducttype();
+	  int add(String leibie); 
 }

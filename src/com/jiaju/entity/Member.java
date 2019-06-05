@@ -10,6 +10,12 @@ public class Member {
 				this.userName = userName;
 				this.userPassword = userPassword;
 			}
+			public Member(String userName, String userPassword) {
+				super();
+				
+				this.userName = userName;
+				this.userPassword = userPassword;
+			}
 			public Member() {
 				super();
 			}
