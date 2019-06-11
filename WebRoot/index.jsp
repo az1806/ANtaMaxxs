@@ -8,9 +8,9 @@
 	Company pdy = (Company) request.getAttribute("cpdy");
 	List<Productlist> llist = (List<Productlist>) request
 			.getAttribute("ldlist");
-	List<Producttype> list = (List<Producttype>) request
-			.getAttribute("lblist");
-			List<Productlist> prolist =(List<Productlist>) request.getAttribute("getpro");
+	List<Productlist> prolist =(List<Productlist>) request.getAttribute("getpro");
+	
+	   List<Newsin> nsn = (List<Newsin>) request.getAttribute("nsn");
 %>
 <!DOCTYPE html>
 <html lang="zh-cn">
@@ -54,7 +54,7 @@
 		<div class="index-content">
 			<section class="index-content-section-first">
 				<div>
-					<img src="images/sectionbanner.png" alt="">
+					<img src="images/jies.png" alt="">
 				</div>
 			</section>
 			<section class="index-content-section-second">
@@ -64,20 +64,20 @@
 						<h6>COMPANY INTRODUCTION</h6>
 						<!-- 公司介绍 -->
 						<main><%=pdy.getJianjie()%></main>
-						<a class="index-button" href="#">查看详情</a>
+						<a class="index-button" href="about?id=<%=pdy.getId() %>">查看详情</a>
 					</div>
 				</div>
 			</section>
 		</div>
 	</section>
-
+          <%List<Producttype> list = (List<Producttype>) request.getAttribute("lblist"); %>
 	<section class="index-product">
 		<main>
 		<ul>
 			<%
 				for (int i = 0; i < list.size(); i++) {
 			%>
-			<li><a href="Productlist?id=<%=list.get(i).getId()%>"></a>
+			<li><a href="/jiaju/productlist?cpid=<%=list.get(i).getId()%>"></a>
 			</li>
 			<%
 				}
@@ -112,7 +112,7 @@
  	 
   <td>
   
-       <img href="productdetail?cpid=<%=llist.get(i).getId() %>" src="<%=llist.get(i).getImg()%>" />
+      <a  href="productdetail?cpid=<%=llist.get(i).getId() %>" > <img src="<%=llist.get(i).getImg()%>" /></a>
   </td>
   <%}%>
   
@@ -123,7 +123,7 @@
 					
  	 <%for (int i = 3; i <6; i++) {%>
   <td>
-       <img href="productdetail?cpid=<%=llist.get(i).getId() %>" src="<%=llist.get(i).getImg()%>" />
+       <a href="productdetail?cpid=<%=llist.get(i).getId() %>" ><img src="<%=llist.get(i).getImg()%>" /></a>
   </td>
   <%}%>
   
@@ -138,15 +138,41 @@
 			</div>
 			
 		</div>
-		
-
-
-
-
-
-
-		
 	</section>
+	<section class="index-margin-bottom">
+    <div class="index-morecase">
+        <span></span>
+        <a href="#">MORE &#62; &#62;</a>
+    </div>
+    <div class="index-content">
+
+
+        <div class="new-index">
+       
+            <ul>
+                <li><img  src="images/jies.png" alt=""> </li>
+                  <%for(int i=0;i<nsn.size();i++){ %>
+                <li>  <a href="article_list_content?id=<%=nsn.get(i).getId() %>"><h3></h3>
+                    <article>
+                        </article></a></li>
+                         <%} %> 
+                       
+            </ul>
+             <%for(int i=0;i<nsn.size();i++){ %>
+            <ul>
+                <li><a href="article_list_content?id=<%=nsn.get(i).getId() %>"><h3><%=nsn.get(i).getZixun() %></h3>
+                    <article><%=nsn.get(i).getXiangqing() %>
+                    </article>
+                </a></li>
+          
+            </ul>
+            <%} %> 
+
+        </div>
+    </div>
+</section>
+	
+	
 
 	<jsp:include page="/foot"></jsp:include>
 </body>

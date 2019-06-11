@@ -6,6 +6,11 @@ import com.jiaju.entity.Newsin;
 
 public interface NewsinDao {
 
-	
-	     List<Newsin> getAllNewsinDao();
+	List<Newsin> getAllNewsinDaos(int id);
+
+	List<Newsin> getAllNewsinDao();
+    int newsinadd(String zixun,String xiangqing,String date);
+    int newsindelete(int id);
+    Newsin getnew(int id);
+    int newsinupdate(int id,String zixun,String xiangqing,String date,String fenlei);
 }

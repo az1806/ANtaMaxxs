@@ -22,6 +22,10 @@ public class HeaderServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
+		/**
+		 * 获取公司信息 引入页眉
+		 */
+		
 		CompanyDao cpd = new CompanyDaoImpl();
         Company cpdy = cpd.getAllCompanyDao();
     	request.setAttribute("cpdy", cpdy);

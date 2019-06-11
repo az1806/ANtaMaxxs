@@ -18,20 +18,30 @@ import com.jiaju.entity.Newsintype;
 
 public class Article_list_contentServlet extends HttpServlet {
 
-	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		  
+
 		NewsintypeDao ntd = new NewsintypeDaoImpl();
 		List<Newsintype> list = ntd.getAllNewsintypeDao();
 		request.setAttribute("list", list);
-		
-		 NewsinDao nsd = new   NewsinDaoImpl();
-		   List <Newsin> nsn = nsd.getAllNewsinDao();
-		   request.setAttribute("nsn", nsn);
-		
+      
+	
+		String i = request.getParameter("id");
 
-		request.getRequestDispatcher("article_list_content.jsp").forward(request, response);
+		NewsinDao nsd = new NewsinDaoImpl();
+		if(i==null){
+			i="1";
+			int	id = Integer.parseInt(i);
+			List<Newsin> nsn = nsd.getAllNewsinDaos(id);
+			request.setAttribute("nsn", nsn);
+       }else{
+    	   int	id = Integer.parseInt(i);
+			List<Newsin> nsn = nsd.getAllNewsinDaos(id);
+			request.setAttribute("nsn", nsn);
+       }
+		
+		request.getRequestDispatcher("article_list_content.jsp").forward(
+				request, response);
 	}
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

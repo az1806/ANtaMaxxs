@@ -66,7 +66,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
     <div class="about-box">
         <div class="about-leftbox">
-            <img src="images/banner4.jpg" alt="">
+            <img src="images/jiess.png" alt="">
+         <h3>  使命：
+将超越自我的体育精神融入每个人的生活</h3>
         </div>
         <div class="about-rightbox">
             <h1>企业文化</h1>

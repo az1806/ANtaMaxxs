@@ -10,5 +10,8 @@ public interface ProducttypeDao {
 	
 	
 	  List<Producttype> getAllProducttype();
-	  int add(String leibie); 
+	  int Producttypeadd(String leibie);
+	  int deletetypeById(int id);
+	  Producttype gettypeById(int id);
+	  int updatetypeById(int id, String leibie);
 }

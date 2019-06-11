@@ -38,11 +38,36 @@ public class ProducttypeDaoImpl  implements ProducttypeDao {
 	}
 
 	@Override
-	public int add(String leibie) {
-		// TODO Auto-generated method stub
-		return DBManager.updateSQL("INSERT INTO antadb.producttype (leibie) VALUES ('"+leibie+"');");
+	public int Producttypeadd(String leibie) {
+		return DBManager.updateSQL("insert into producttype(leibie) value('"+leibie+"')");
+	}
+	@Override
+	public int deletetypeById(int id) {
+		return DBManager.updateSQL("delete from producttype where id=" + id);
+	}
+	@Override
+	public Producttype gettypeById(int id) {
+		try {
+		
+			ResultSet rs = DBManager.querySQL("select * from producttype where id=" + id);
+			while(rs.next()){
+				int Id = rs.getInt(1);
+				String leibie = rs.getString(2);
+				return new Producttype(Id, leibie);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
-	
+	@Override
+	public int updatetypeById(int id, String leibie) {
+		return DBManager.updateSQL("update producttype set leibie='"+leibie+"' where id=" + id);
+	}
+
 
 }
+
+
+

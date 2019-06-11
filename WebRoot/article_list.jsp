@@ -3,7 +3,7 @@
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
 
-      		List<Newsintype> listss =(List<Newsintype>) request.getAttribute("listss");
+      		
       		 List <Newsin> list = ( List <Newsin>)request.getAttribute("nsn");
     
 %>
@@ -41,13 +41,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <jsp:include page="/header"></jsp:include>
        <header class="header-article-list">
         <div class="article-position">新闻资讯</div>
-      
-  <ul>
-       
-            <li class="article-on"><a href="article_list.html"></a></li>
-      
+      <%List<Newsintype> listss =(List<Newsintype>) request.getAttribute("listss");%>
+     
+  		<ul>
+  		 <%for(int i=0;i<listss.size();i++){ %>
+            	<li class="article-on"><a href="article_list?typeid=<%=listss.get(i).getId() %>"><%=listss.get(i).getLeibie() %></a></li>
+       <%} %>
         </ul>
-        
+      
        
         <div class="article-more-btn">
             <a href="article_list_more.html">MORE &#62; &#62;</a>
@@ -63,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                   <p><%=list.get(i).getDate() %></p>
                 </div>
                 <div class="article-info">
-                    <a href="article_list_content">
+                    <a href="article_list_content?id=<%=list.get(i).getId() %>">
                         <h3><%=list.get(i).getZixun() %></h3>
                         <p><%=list.get(i).getXiangqing() %></p>
                     </a>

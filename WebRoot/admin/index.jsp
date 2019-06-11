@@ -5,7 +5,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<base href="<%=basePath%>">
@@ -27,7 +27,7 @@
 <body>
     <!-- 顶部开始 -->
     <div class="container">
-        <div class="logo"><a href="./index.html">X-admin v2.0</a></div>
+        <div class="logo"><a href="/index.jsp">X-admin v2.0</a></div>
         <div class="left_open">
             <i title="展开左侧栏" class="iconfont">&#xe699;</i>
         </div>
@@ -68,35 +68,27 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="member-list.html">
+                        <a href="admin/company.jsp">
                             <i class="iconfont">&#xe6a7;</i>
-                            <cite>会员列表</cite>
+                            <cite>公司信息管理</cite>
                             
                         </a>
                     </li >
                 </ul>
             </li>
             <li>
-                <a _href="admin/admin-cate.html">
+                <a href="admin/product-cate.jsp">
                     <i class="iconfont">&#xe723;</i>
                     <cite>产品类别管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
             </li>
             <li>
-                <a href="javascript:;">
+                <a href="admin/Productlist.jsp">
                     <i class="iconfont">&#xe723;</i>
                     <cite>产品管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="admin/product-cate.jsp">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>多级分类</cite>
-                        </a>
-                    </li >
-                </ul>
             </li>
             <li>
                 <a href="javascript:;">
@@ -104,14 +96,6 @@
                     <cite>咨询类别管理</cite>
                     <i class="iconfont nav_right">&#xe697;</i>
                 </a>
-                <ul class="sub-menu">
-                    <li>
-                        <a _href="city.html">
-                            <i class="iconfont">&#xe6a7;</i>
-                            <cite>三级地区联动</cite>
-                        </a>
-                    </li >
-                </ul>
             </li>
             <li>
                 <a href="javascript:;">
@@ -121,7 +105,7 @@
                 </a>
                 <ul class="sub-menu">
                     <li>
-                        <a _href="admin-list.html">
+                        <a href="admin-list.html">
                             <i class="iconfont">&#xe6a7;</i>
                             <cite>管理员列表</cite>
                         </a>

@@ -10,12 +10,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.jiaju.dao.CompanyDao;
+import com.jiaju.dao.NewsinDao;
 import com.jiaju.dao.ProductlistDao;
 import com.jiaju.dao.ProducttypeDao;
 import com.jiaju.daoimpl.CompanyDaoImpl;
+import com.jiaju.daoimpl.NewsinDaoImpl;
 import com.jiaju.daoimpl.ProductlistDaoImpl;
 import com.jiaju.daoimpl.ProducttypeDaoImpl;
 import com.jiaju.entity.Company;
+import com.jiaju.entity.Newsin;
 import com.jiaju.entity.Productlist;
 import com.jiaju.entity.Producttype;
 
@@ -47,16 +50,22 @@ public class IndexServlet extends HttpServlet {
 		/**
 		 * 根据产产品id获取商品
 		 */
-		int cpid;
+		int cpid=0;
 		if(request.getParameter("cpid")!=null){
 			
 			 cpid=Integer.parseInt(request.getParameter("cpid"));
 		}
 		
 		ProductlistDao prodaos=new ProductlistDaoImpl();
-		List<Productlist> getpro=prodaos.Getproduct();
+		List<Productlist> getpro=prodaos.Getproduct(cpid);
 		request.setAttribute("getpro", getpro);
-		
+		/**
+		 * 获取资讯列表
+		 */
+		NewsinDao nsd = new NewsinDaoImpl();
+		List<Newsin> nsn = nsd.getAllNewsinDao();
+		System.out.println(nsn);
+		request.setAttribute("nsn", nsn);
 		
 		
 		request.getRequestDispatcher("index.jsp").forward(request, response);

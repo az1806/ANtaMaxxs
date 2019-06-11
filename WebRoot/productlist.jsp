@@ -8,6 +8,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
           List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
           
            List<Productlist> getpro=(ArrayList<Productlist>) request.getAttribute("getpro");
+           
+           List<Productlist> proalls =(List<Productlist>)request.getAttribute("proalls");
        
                  
 %>
@@ -40,6 +42,12 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<script type="text/javascript">
+	function like(){
+		var pName = document.getElementById("productName").value;
+		window.location.href = "products?proName="+pName;
+	}
+</script>
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
@@ -54,7 +62,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <li>
                 <a>产品搜索</a>
                 <ul id="pro-search">
-                    <li><a><input type="text"  class="pro-search"><a class="pro-search-btn">搜索</a></a></li>
+                    <li>
+                   		<input type="text" name="proName" id="productName" class="pro-search"/>
+                   			<a href="javascript:void(0);" class="pro-search-btn" onclick="like()">搜索</a>
                 </ul>
             </li>
             <li>

@@ -18,23 +18,22 @@ public class MessageServlet extends HttpServlet {
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
-		request.setCharacterEncoding("utf-8");
 		PrintWriter out = response.getWriter();
 		
 		MessageDao mDao = new MessageDaoImpl();
 		String username = request.getParameter("username");
 		String email = request.getParameter("email");
 		String phone = request.getParameter("phone");
-		String neirong = request.getParameter("neirong");
+		String content = request.getParameter("content");
 		
 		if (username==null || username.equals("") || email==null || email.equals("")) {
 			out.println("<script>alert('信息不能为空!');" +
 					"location.href='message.jsp';</script>");
 		} else {
-			int n = mDao.insertMessage(username, phone, email, neirong);
+			int n = mDao.insertMessage(username, email, phone, content);
 			if (n > 0) {
 				out.println("<script>alert('留言成功!');" +
-						"location.href='message.jsp';</script>");
+						"location.href='index.jsp';</script>");
 			} else {
 				out.println("<script>alert('留言失败!');" +
 						"location.href='message.jsp';</script>");

@@ -43,23 +43,26 @@ public class ProductlistServlet extends HttpServlet {
 		
 		
 		
-		int cpid;
+		int cpid=0;
 		if(request.getParameter("cpid")!=null){
 			
 			 cpid=Integer.parseInt(request.getParameter("cpid"));
 		}
 		
 		ProductlistDao prodaos=new ProductlistDaoImpl();
-		List<Productlist> getpro=prodaos.Getproduct();
+		List<Productlist> getpro=prodaos.Getproduct(cpid);
 		request.setAttribute("getpro", getpro);
 		
+		ProductlistDao proall=new ProductlistDaoImpl();
+		List<Productlist> proalls =proall.productAll();
+		request.setAttribute("proalls",proalls);
 		
-		
+	
 		ProductlistDao prodao=new ProductlistDaoImpl();
 		List<Productlist> prolist=prodao.getAllProduct(typeid);
           request.setAttribute("prolist", prolist);
 		
-		
+          
 
 		request.getRequestDispatcher("productlist.jsp").forward(request, response);
 	}

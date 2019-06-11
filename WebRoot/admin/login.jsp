@@ -24,10 +24,11 @@
     <script type="text/javascript" src="admin/js/xadmin.js"></script>
 	<script type="text/javascript">
 		function login(){
-			alert(1);
+			
 			var username = document.getElementById("username").value;
 			var password = document.getElementById("password").value;
-			$.post("admin/user?method=login",{"username":username, "password":password},function(res){
+			
+			$post("admin/Hproductservlet?method=login",{"username":username, "password":password},function(res){
 				if (res.success){
 					alert(res.message);
 					window.location.href = "admin/index.jsp";
@@ -44,12 +45,12 @@
         <div class="message">x-admin2.0-管理登录</div>
         <div id="darkbannerwrap"></div>
         
-        <form class="layui-form" action="admin/hproduct?method=login" >
+        <form href="admin/Hproductservlet?method=login" class="layui-form"  >
             <input name="username" id="username" placeholder="用户名"  type="text" lay-verify="required" class="layui-input" >
             <hr class="hr15">
             <input name="password" id="password" lay-verify="required" placeholder="密码"  type="password" class="layui-input">
             <hr class="hr15">
-            <input value="登录"  style="width:100%;" type="submit">
+            <input value="登录" onclick="login()"  style="width:100%;" type="submit">
             <hr class="hr20" >
         </form>
     </div>

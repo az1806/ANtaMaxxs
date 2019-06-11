@@ -12,6 +12,9 @@ import com.jiaju.util.DBManager;
 
 public class MessageDaoImpl implements MessageDao {
 
+	/**
+	 * Ìí¼ÓÁôÑÔ
+	 */
 	@Override
 	public int insertMessage(String username, String phone, String email,
 			String neirong) {

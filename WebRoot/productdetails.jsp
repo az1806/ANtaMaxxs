@@ -2,11 +2,8 @@
 <%
 String path = request.getContextPath();
 String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
-             List<Producttype> typelist=(ArrayList<Producttype>) request.getAttribute("typelist");
-             
-               List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("prolist");
-               
-             int cpid=Integer.parseInt(request.getParameter("cpid"));
+List<Producttype> typelist=(ArrayList<Producttype>) request.getAttribute("typelist");
+List<Productlist> prolist=(ArrayList<Productlist>) request.getAttribute("getpro");
              
 %>
 <!DOCTYPE html>
@@ -38,6 +35,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <script type="text/javascript" src="lib/amazeui/amazeui.min.js"></script>
 <script type="text/javascript" src="lib/raty/jquery.raty.js"></script>
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
+<style type="text/css">
+.red{
+  color: red;
+}
+
+
+</style>
 </head>
 <body>
 <jsp:include page="/header"></jsp:include>
@@ -58,7 +62,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <ul id="pro-category">
               <%for(int i=0;i<typelist.size();i++){ %>
               
-              <li ><a href="#"><%=typelist.get(i).getLeibie() %>  </a></li>
+              <li ><a href="/jiaju/productlist?typeid=<%=typelist.get(i).getId() %>"><%=typelist.get(i).getLeibie() %>  </a></li>
           <%   } %>
                    
               
@@ -77,12 +81,13 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
         </header>
         <main>
             <div class="pro-right-left">
-                <div class="pro-details-img"><img src="images/proimg.jpg"></div>
+                <div class="pro-details-img"><img src="<%=prolist.get(0).getImg() %>"></div>
 				
                 <div class="pro-detalis-carousel">
                     <div class="am-slider am-slider-default am-slider-carousel" data-am-flexslider="{itemWidth: 112, itemMargin: 4,move:5,  controlNav: false ,  slideshow: true}">
+                    
                         <ul class="am-slides pro-details">
-                            <li><img src="<%=prolist.get(cpid-1).getImg() %>" /></li>
+                            <li><img src="<%=prolist.get(0).getImg() %>" /></li>
                             
                         </ul>
                     </div>
@@ -92,16 +97,16 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
             <div class="pro-right-right">
                 <ul class="pro-right-info-constant">
                     <li>产品名称:</li>
-                    <li>产品材质:</li>
-                    <li>产品售价:</li>
+                    <li>产品颜色:</li>
+                    <li>产品码号:</li>
                     <li>市场价:</li>
                 </ul>
                 <ul class="pro-right-info-variable">
                           
-                    <li><%=prolist.get(cpid-1).getName() %></li>      
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li><%=prolist.get(0).getName() %></li>      
+                    <li><%=prolist.get(0).getColor() %></li>
+                    <li><h3><%=prolist.get(0).getSize() %></h3></li>
+                    <li><h2 class="red">￥<%=prolist.get(0).getJiaqian() %></h2></li>
                    
                 </ul>
             </div>
@@ -118,24 +123,24 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                     <div class="am-tab-panel am-active" id="tab1">
                         <ul>
                             <li>
-                                <span class="pro-tabs-constant">品牌:</span>
-                                <span class="pro-tabs-variable">XXX</span>
+                                <span class="pro-tabs-constant">名称:</span>
+                                <span class="pro-tabs-variable"><%=prolist.get(0).getName() %> </span>
                             </li>
                             <li>
-                                <span class="pro-tabs-constant">是否组装:</span>
-                                <span class="pro-tabs-variable">NO</span>
+                                <span class="pro-tabs-constant">颜色:</span>
+                                <span class="pro-tabs-variable"><%=prolist.get(0).getColor() %></span>
                             </li>
                             <li>
                                 <span class="pro-tabs-constant">是否可定制:</span>
                                 <span class="pro-tabs-variable">yes</span>
                             </li>
                             <li>
-                                <span class="pro-tabs-constant">型号:</span>
-                                <span class="pro-tabs-variable">000000</span>
+                                <span class="pro-tabs-constant">系列:</span>
+                                <span class="pro-tabs-variable"><%=prolist.get(0).getXilie() %></span>
                             </li>
                             <li>
-                                <span class="pro-tabs-constant">颜色分类:</span>
-                                <span class="pro-tabs-variable">卡其</span>
+                                <span class="pro-tabs-constant">产品数量:</span>
+                                <span class="pro-tabs-variable"><%=prolist.get(0).getSum() %></span>
                             </li>
                             <li>
                                 <span class="pro-tabs-constant">设计元素:</span>

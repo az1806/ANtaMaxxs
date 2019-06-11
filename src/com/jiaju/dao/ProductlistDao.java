@@ -21,6 +21,13 @@ public interface ProductlistDao {
 	         * @return
 	         */
 	        
-	        List<Productlist> Getproduct();
+	        List<Productlist> Getproduct(int id);
+	        List<Productlist> productAll();
+	        
+	        
+	        int addlist(String name,String size,String color,String sum,String jiaqian,String fenlei,String xilie,String img);
+	        int deletelistById(int id);
+	        Productlist getlistById(int id);
+	        int updatelistById(int id,String name,String size,String color,String sum,String jiaqian,String fenlei,String xilie,String img);
 	        
 }

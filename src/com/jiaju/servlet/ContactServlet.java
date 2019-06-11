@@ -21,7 +21,9 @@ public class ContactServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	
+	/**
+	 * 联系我们的公司信息
+	 */
 		
 	 	CompanyDao cpd = new CompanyDaoImpl();
         Company cpdy = cpd.getAllCompanyDao();

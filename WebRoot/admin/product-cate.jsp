@@ -1,9 +1,11 @@
+<%@page import="com.jiaju.entity.*"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
+			List<Producttype> list = (List<Producttype>)request.getAttribute("list");
 %>
 
 <!DOCTYPE html>
@@ -19,7 +21,7 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="./css/font.css">
     <link rel="stylesheet" href="./css/xadmin.css">
-    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    
     <script type="text/javascript" src="./lib/layui/layui.js" charset="utf-8"></script>
     <script type="text/javascript" src="./js/xadmin.js"></script>
     <!-- 让IE8/9支持媒体查询，从而兼容栅格 -->
@@ -27,16 +29,17 @@
       <script src="https://cdn.staticfile.org/html5shiv/r29/html5.min.js"></script>
       <script src="https://cdn.staticfile.org/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script type="text/javascript">
-    function add(){
-    var leibie=document.getElementById(leibie).value;
-    if(leibie!=""){
-    window.location.href="admin/ProductServlet?method=add&leibie="+leibie;
-    
-    }
-    
-    }
-    </script>
+  <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+  <script type="text/javascript">
+  	function add(){
+  	var leibie =document.getElementById("leibie").value;
+  	if(leibie!=""){
+  	window.location.href="ProductlistServlet?method=Producttypeadd&leibie="+leibie;
+  	
+  	}
+  	
+  	}
+  </script>
   </head>
   
   <body>
@@ -53,8 +56,8 @@
     <div class="x-body">
       <div class="layui-row">
         <form class="layui-form layui-col-md12 x-so layui-form-pane">
-          <input class="layui-input" placeholder="分类名" name="cate_name" id="leibie">
-          <button class="layui-btn"  type="button" onclick="add()" lay-filter="sreach"><i class="layui-icon"></i>增加</button>
+          <input class="layui-input" placeholder="分类名" name="leibie" id="leibie">
+          <button class="layui-btn"  type="button" onclick="add()" lay-filter="sreach" ><i class="layui-icon"></i>增加</button>
         </form>
       </div>
       <xblock>
@@ -73,20 +76,23 @@
         </thead>
         <tbody>
           <tr>
-            <td>
-              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
-            </td>
-            <td>1</td>
-            <td>会员相关</td>
-            <td class="td-manage">
-              <a title="编辑"  onclick="x_admin_show('编辑','admin-edit.html')" href="javascript:;">
-                <i class="layui-icon">&#xe642;</i>
-              </a>
-              <a title="删除" onclick="member_del(this,'要删除的id')" href="javascript:;">
-                <i class="layui-icon">&#xe640;</i>
-              </a>
-            </td>
-          </tr>
+          	<% for(int i=0;i<list.size();i++){ %>
+        		<tr>
+		            <td>
+		              <div class="layui-unselect layui-form-checkbox" lay-skin="primary" data-id='2'><i class="layui-icon">&#xe605;</i></div>
+		            </td>
+		            <td><%=list.get(i).getId() %></td>
+		            <td><%=list.get(i).getLeibie() %></td>
+		            <td class="td-manage">
+		              <a title="编辑"  onclick="x_admin_show('编辑','admin/ProductServlet?method=gettypeById&id=<%=list.get(i).getId() %>')">
+		                <i class="layui-icon">&#xe642;</i>
+		              </a>
+		              <a title="删除" onclick="member_del(this,'要删除的id')" href="admin/ProductServlet?method=deletetype&id=<%=list.get(i).getId() %>">
+		                <i class="layui-icon">&#xe640;</i>
+		              </a>
+		            </td>
+		          </tr>
+        	<% } %>
         </tbody>
       </table>
       <div class="page">

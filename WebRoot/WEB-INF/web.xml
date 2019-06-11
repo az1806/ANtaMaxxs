@@ -101,6 +101,20 @@
     <servlet-name>ProductServlet</servlet-name>
     <servlet-class>com.ysd.Servlet.ProductServlet</servlet-class>
   </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Login</servlet-name>
+    <servlet-class>com.jiaju.admin.servlet.Login</servlet-class>
+  </servlet>
+  <servlet>
+    <description>This is the description of my J2EE component</description>
+    <display-name>This is the display name of my J2EE component</display-name>
+    <servlet-name>Productlistservlet</servlet-name>
+    <servlet-class>com.anta.servlet.admin.Productlistservlet</servlet-class>
+  </servlet>
+
+
 
 
 
@@ -176,6 +190,14 @@
   <servlet-mapping>
     <servlet-name>ProductServlet</servlet-name>
     <url-pattern>/admin/ProductServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Login</servlet-name>
+    <url-pattern>/admin/Login</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>Productlistservlet</servlet-name>
+    <url-pattern>/admin/productlist</url-pattern>
   </servlet-mapping>
  
   <welcome-file-list>

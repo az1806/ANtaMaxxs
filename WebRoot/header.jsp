@@ -39,6 +39,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                 <div class="input-box"><input type="text" name="" placeholder="             请输入关键字"></div>
                 <div class="search-botton"></div>
             </div>
+             
         </div>
     </div>
     <div class="header-nav">
@@ -55,7 +56,11 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
                     <ul><li><a href="message.jsp" class="message"></a></li></ul>
                 </div>
-            </li>
+            </li> 
+            <li><a> </a></li>
+            <li><a> </a></li>
+            <li><a> </a></li>
+             <li><a href="admin/login.jsp" name="login">登陆</a></li>
         </ul>
 
         </nav>

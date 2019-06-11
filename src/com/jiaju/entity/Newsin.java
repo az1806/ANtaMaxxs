@@ -5,12 +5,15 @@ public class Newsin {
 				private String zixun;
 				private String xiangqing;
 				private String date;
-				public Newsin(int id, String zixun, String xiangqing,String date) {
+				private String fenlei;
+				public Newsin(int id, String zixun, String xiangqing,
+						String date, String fenlei) {
 					super();
 					this.id = id;
 					this.zixun = zixun;
 					this.xiangqing = xiangqing;
 					this.date = date;
+					this.fenlei = fenlei;
 				}
 				public Newsin() {
 					super();
@@ -39,11 +42,17 @@ public class Newsin {
 				public void setDate(String date) {
 					this.date = date;
 				}
+				public String getFenlei() {
+					return fenlei;
+				}
+				public void setFenlei(String fenlei) {
+					this.fenlei = fenlei;
+				}
 				@Override
 				public String toString() {
 					return "Newsin [id=" + id + ", zixun=" + zixun
 							+ ", xiangqing=" + xiangqing + ", date=" + date
-							+ "]";
+							+ ", fenlei=" + fenlei + "]";
 				}
 				
 				

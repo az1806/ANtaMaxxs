@@ -11,8 +11,11 @@ import com.jiaju.util.DBManager;
 
 public class MemberDaoImpl implements MemberDao{
 
+	/**
+	 * 管理员信息
+	 */
 	@Override
-	public Member querySQL(String userName,String userPassword) {
+	public Member login(String userName,String userPassword) {
 		
 		ResultSet rs=DBManager.querySQL("SELECT * FROM antadb.member where userName='"+userName+"'and userPassword'"+userPassword+"';");
 		try {

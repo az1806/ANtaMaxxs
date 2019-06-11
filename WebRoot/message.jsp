@@ -1,12 +1,4 @@
-﻿<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
-<%
-	String path = request.getContextPath();
-	String basePath = request.getScheme() + "://"
-			+ request.getServerName() + ":" + request.getServerPort()
-			+ path + "/";
-%>
-
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="zh-cn">
 <head>
     <title>某某家具设计公司企业官网-模板之家</title>
@@ -36,7 +28,7 @@
 <script type="text/javascript" src="js/main.min.js?t=1"></script>
 
 <script type="text/javascript">
-	function checkForm(){
+	function Tijiao(){
 		var username = document.getElementById("username").value;
 		var phone = document.getElementById("phone").value;
 		var email = document.getElementById("email").value;
@@ -57,6 +49,8 @@
 			alert("评论内容不能为空!!!");
 			return false;		
 		}
+		alert("留言成功");
+		
 		return true;
 	}
 </script>
@@ -69,7 +63,7 @@
 
     </header>
 <div>
-   <form class="message-form" action="message" method="post" onsubmit="return checkForm(this)">
+   <form class="message-form" action="message" method="post" >
 
        <label>姓名
            <input id="username" type="text" name="username">
@@ -94,7 +88,7 @@
        </label>
 
 
-       <button type="submit" class="am-btn am-btn-danger">提交</button>
+       <button type="submit" class="am-btn am-btn-danger" onclick="Tijiao()">提交</button>
    </form>
 </div>
 </div>
